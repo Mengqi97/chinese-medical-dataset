@@ -1,7 +1,8 @@
-# [更新中]中文医学数据集整理
-## 中文医学数据集
+# [更新中]中文医学数据集详细整理
 
 Author: mzcai@ir.hit.edu.cn
+
+@[TOC]
 
 
 ## 1、【分类&医疗问答】CMB Chinese-Medical-Benchmark
