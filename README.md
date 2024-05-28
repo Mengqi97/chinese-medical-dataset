@@ -70,7 +70,6 @@ Author: mzcai@ir.hit.edu.cn
 - [16、【实体关系】CPubMed-KG](#16实体关系cpubmed-kg)
   - [16.1、数据集汇总](#161数据集汇总)
   - [16.2、数据示例](#162数据示例)
-- [注](#注)
 - [参考链接](#参考链接)
 
 
@@ -1414,13 +1413,7 @@ head_entity@@entity_type	relation	tail_entity@@entity_type
 
 
 
-## 注
-
-竞赛的数据，如[CHIP](http://cips-chip.org.cn/2022/callforeval)、[瑞金医院MMC人工智能辅助构建知识图谱大赛](https://tianchi.aliyun.com/competition/entrance/231687/information)、[“公益AI之星”挑战赛-新冠疫情相似句对判定大赛](https://tianchi.aliyun.com/competition/entrance/231776/information)，比赛后无法访问因此没有录入
-
-[CPubMed-KG](https://cpubmed.openi.org.cn/graph/wiki)使用权限正在申请中尚未录入。
-
-## 参考链接
+## 参考链接（整理进度）
 
 - [x] https://github.com/FreedomIntelligence/Medical_NLP
 - [ ] http://openkg.cn/group/medicine
