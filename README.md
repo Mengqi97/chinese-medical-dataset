@@ -70,6 +70,12 @@ Author: mzcai@ir.hit.edu.cn
 - [16、【实体关系】CPubMed-KG](#16实体关系cpubmed-kg)
   - [16.1、数据集汇总](#161数据集汇总)
   - [16.2、数据示例](#162数据示例)
+- [17、【知识图谱】孤独症谱系障碍知识库AsdKB](#17知识图谱孤独症谱系障碍知识库asdkb)
+  - [17.1、数据汇总](#171数据汇总)
+  - [17.2、数据示例](#172数据示例)
+- [18、【医疗问答】RJUA-QADatasets: 蚂蚁-仁济泌尿专科QA数据集](#18医疗问答rjua-qadatasets蚂蚁-仁济泌尿专科qa数据集)
+  - [18.1、数据汇总](#181数据汇总)
+  - [18.2、数据示例](#182数据示例)
 - [参考链接（整理进度）](#参考链接整理进度)
 
 
@@ -1595,7 +1601,7 @@ Context来自于中国泌尿外科和男科疾病诊断治疗指南。Question�
 ## 参考链接（整理进度）
 
 - [x] https://github.com/FreedomIntelligence/Medical_NLP
-- [ ] http://data.openkg.cn/group/medicine
+- [ ] http://data.openkg.cn/group/medicine [进行中]
 - [ ] https://github.com/GanjinZero/awesome_Chinese_medical_NLP
 - [ ] https://github.com/FutureForMe/Chinese_Medical_Natural_Language_Processing_Resources_and_Papers
 - [ ] https://www.trec-cds.org/2023.html
