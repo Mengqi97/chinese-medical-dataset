@@ -4,10 +4,10 @@ Author: mzcai@ir.hit.edu.cn
 
 - [中文医学数据集](#中文医学数据集)
 - [1、【分类\&医疗问答】CMB Chinese-Medical-Benchmark](#1分类医疗问答cmb-chinese-medical-benchmark)
-  - [1.1、CMD数据集汇总](#11cmd数据集汇总)
+  - [1.1、CMB数据集汇总](#11CMB数据集汇总)
   - [1.2、数据示例](#12数据示例)
-    - [1.2.1、CMD-Exam数据示例](#121cmd-exam数据示例)
-    - [1.2.2、CMD-Clin数据示例](#122cmd-clin数据示例)
+    - [1.2.1、CMB-Exam数据示例](#121CMB-exam数据示例)
+    - [1.2.2、CMB-Clin数据示例](#122CMB-clin数据示例)
 - [2、【医疗问答】Huatuo-26M](#2医疗问答huatuo-26m)
   - [2.1、Huatuo数据集汇总](#21huatuo数据集汇总)
   - [2.2、数据示例](#22数据示例)
@@ -76,14 +76,14 @@ Author: mzcai@ir.hit.edu.cn
 
 ## 1、【分类&医疗问答】CMB Chinese-Medical-Benchmark
 
-CMD基准介绍网址：https://github.com/FreedomIntelligence/CMB
+CMB基准介绍网址：https://github.com/FreedomIntelligence/CMB
 
-### 1.1、CMD数据集汇总
+### 1.1、CMB数据集汇总
 
 | 名称     | 内容                   | 数据量                             | 数据下载                                                     |
 | -------- | ---------------------- | ---------------------------------- | ------------------------------------------------------------ |
-| CMB-Exam | 医学知识综合多层次评估 | train/valid/test: 269359/280/11200 | [百度网盘](https://pan.baidu.com/s/1Uv7PgU1gOXrD3PYhG8_opQ?pwd=j0np)<br />其他下载方式git clone/huggingface从CMD基准介绍网址获取 |
-| CMB-Clin | 74例复杂医疗询问       | 74                                 | [百度网盘](https://pan.baidu.com/s/1Uv7PgU1gOXrD3PYhG8_opQ?pwd=j0np)<br />其他下载方式git clone/huggingface从CMD基准介绍网址获取 |
+| CMB-Exam | 医学知识综合多层次评估 | train/valid/test: 269359/280/11200 | [百度网盘](https://pan.baidu.com/s/1Uv7PgU1gOXrD3PYhG8_opQ?pwd=j0np)<br />其他下载方式git clone/huggingface从CMB基准介绍网址获取 |
+| CMB-Clin | 74例复杂医疗询问       | 74                                 | [百度网盘](https://pan.baidu.com/s/1Uv7PgU1gOXrD3PYhG8_opQ?pwd=j0np)<br />其他下载方式git clone/huggingface从CMB基准介绍网址获取 |
 
 - CMB-Exam：医学知识综合多层次评估
 
@@ -96,7 +96,7 @@ CMD基准介绍网址：https://github.com/FreedomIntelligence/CMB
 
 ### 1.2、数据示例
 
-#### 1.2.1、CMD-Exam数据示例
+#### 1.2.1、CMB-Exam数据示例
 
 ```json
 {
@@ -123,7 +123,7 @@ CMD基准介绍网址：https://github.com/FreedomIntelligence/CMB
 
 
 
-#### 1.2.2、CMD-Clin数据示例
+#### 1.2.2、CMB-Clin数据示例
 
 ```json
 {
