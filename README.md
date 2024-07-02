@@ -1413,11 +1413,190 @@ head_entity@@entity_type	relation	tail_entity@@entity_type
 
 
 
+## 17、【知识图谱】孤独症谱系障碍知识库AsdKB
+
+### 17.1、数据汇总
+
+数据下载：https://zenodo.org/records/8199698 界面中的 https://zenodo.org/api/records/8199698/files-archive
+
+数据文件：ontology.owl \ mapping.owl \ instance.zip
+
+| 本体（对应数据文件，ontology.owl）                          | 数据量 | 取值范围                                                     |
+| ----------------------------------------------------------- | ------ | ------------------------------------------------------------ |
+| **Classes**：定义和组织概念，用于分类和建立层次结构。       | 31     | 实证有效的干预方法，儿童孤独症，非典型孤独症，雷特征候群，其他儿童瓦解性障碍，伴有精神阻滞和刻板运动的过度活跃障碍，阿斯伯格综合症，其他广泛性发育障碍，未明确的广泛性发育障碍症，行政区域，孤独症谱系障碍，市，诊断标准，区，医院，社会交往障碍，选项，其他相关疾病，其他症状，医生，省，刻板行为活动，筛查问题，筛查量表，社交障碍标准，刻板行为标准，孤独症症状，广泛性发育剩余状态障碍(障碍)，孤独症(障碍)，婴儿孤独症(障碍)，儿童期发病的孤独症(障碍) |
+| **Object Properties**：描述实体之间的关系，连接不同的实体。 | 11     | 量表问题，所属市，对应症状，诊断专家，选项，孤独症症状，干预方法，位于，命中标准，筛查量表，就职医院 |
+| **Data Properties**：描述实体的具体属性，连接实体和数据值。 | 23     | 科室，snomed-ct编码，地址，适用年龄，作者，联系方式，(医院)等级，ICD-10编码，简介，选项内容，发病原因，患病人群，人口数量，问题内容，行政区划代码，评判规则，分值，筛查界限，擅长方向，同义词，花费时间，职称，用户 |
+
+| 映射关系（对应数据文件，mapping.owl） | 数据量 |
+| ------------------------------------- | ------ |
+| **equivalentClass**：等价类关系       | 20     |
+| **subClassOf**：子类关系              | 2      |
+
+| 实例（对应数据文件，instance.zip)            | 数据量 |
+| -------------------------------------------- | :----: |
+| 疾病(disease)                                |   52   |
+| 症状(symptom)                                |   65   |
+| 治疗方式(treatment)                          |   28   |
+| 医院(hospital)                               |  270   |
+| 医生(doctor)                                 |  499   |
+| 城市(city)                                   |  337   |
+| 地理实体(Geo)                                |  2843  |
+| 省(province)                                 |   34   |
+| 工具(tool)，包含多个question和对应多个option |   19   |
+| 等级(level)                                  |   6    |
+| 描述某些特定社交互动障碍标准的实例(D)        |   43   |
+
+### 17.2、数据示例
+
+本体：ontology.owl
+
+```xml
+  <!-- 
+  ///////////////////////////////////////////////////////////////////////////////////////
+  //
+  // Object Properties
+  //
+  ///////////////////////////////////////////////////////////////////////////////////////
+   -->
+
+  <!-- https://w3id.org/asdkb/isPartOf -->
+
+  <owl:ObjectProperty rdf:about="https://w3id.org/asdkb/isPartOf">
+      <rdfs:domain rdf:resource="https://w3id.org/asdkb/ontology/class/screening_question"/>
+      <rdfs:range rdf:resource="https://w3id.org/asdkb/ontology/class/screening_tool"/>
+      <rdfs:label xml:lang="en">isPartOf</rdfs:label>
+      <rdfs:label xml:lang="zh">量表问题</rdfs:label>
+  </owl:ObjectProperty>
+
+      <!-- 
+  ///////////////////////////////////////////////////////////////////////////////////////
+  //
+  // Data properties
+  //
+  ///////////////////////////////////////////////////////////////////////////////////////
+   -->
+
+  <!-- https://w3id.org/asdkb/department -->
+
+  <owl:DatatypeProperty rdf:about="https://w3id.org/asdkb/department">
+      <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+      <rdfs:domain rdf:resource="https://w3id.org/asdkb/ontology/class/physician"/>
+      <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      <rdfs:label xml:lang="en">Hospital Department</rdfs:label>
+      <rdfs:label xml:lang="zh">科室</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <!-- 
+  ///////////////////////////////////////////////////////////////////////////////////////
+  //
+  // Classes
+  //
+  ///////////////////////////////////////////////////////////////////////////////////////
+   -->
+
+  <!-- https://w3id.org/asdkb/ontology/class/EBP -->
+
+  <owl:Class rdf:about="https://w3id.org/asdkb/ontology/class/EBP">
+      <rdfs:label xml:lang="en">Evidence-Based Practice</rdfs:label>
+      <rdfs:label xml:lang="zh">实证有效的干预方法</rdfs:label>
+  </owl:Class>
+```
+
+
+映射：mapping.owl
+
+```xml
+  <rdf:Description rdf:about="https://w3id.org/asdkb/ontology/class/F84.4">
+    <owl:equivalentClass rdf:resource="https://uts.nlm.nih.gov/uts/umls/concept/C0349330"/>
+  </rdf:Description>
+  
+  <rdf:Description rdf:about="https://w3id.org/asdkb/ontology/class/physician">
+    <rdfs:subClassOf rdf:resource="https://uts.nlm.nih.gov/uts/umls/concept/C0031831"/>
+    <rdfs:subClassOf rdf:resource="http://linkedlifedata.com/resource/umls/id/C0031831"/>
+  </rdf:Description>
+```
+
+实例：instance.zip （选自disease0部分）
+
+这里面提到的所有内容都是与disease0本体相关的内容，包括有哪些screeningMethod（筛选方法）、diagnosticExpert（诊断专家）等，这些信息是混合在一起的，没有特定的顺序。需要检索某个实例相关的本体内容直接规则检索相关内容即可。比如检索screeningMethod能得到tools19等方法。
+
+```xml
+<https://w3id.org/asdkb/instance/disease0> <https://w3id.org/asdkb/ontology/objectproperty/screeningMethod> <https://w3id.org/asdkb/instance/tools19> .
+<https://w3id.org/asdkb/instance/disease0> <https://w3id.org/asdkb/ontology/objectproperty/diagnosticExpert> <https://w3id.org/asdkb/instance/doctor449> .
+<https://w3id.org/asdkb/instance/disease0> <https://w3id.org/asdkb/ontology/objectproperty/diagnosticExpert> <https://w3id.org/asdkb/instance/doctor134> .
+<https://w3id.org/asdkb/instance/disease0> <https://w3id.org/asdkb/ontology/objectproperty/diagnosticExpert> <https://w3id.org/asdkb/instance/doctor147> .
+<https://w3id.org/asdkb/instance/disease0> <https://w3id.org/asdkb/ontology/objectproperty/diagnosticExpert> <https://w3id.org/asdkb/instance/doctor492> .
+<https://w3id.org/asdkb/instance/disease0> <https://w3id.org/asdkb/ontology/objectproperty/diagnosticExpert> <https://w3id.org/asdkb/instance/doctor495> .
+<https://w3id.org/asdkb/instance/disease0> <https://w3id.org/asdkb/ontology/objectproperty/diagnosticExpert> <https://w3id.org/asdkb/instance/doctor254> .
+<https://w3id.org/asdkb/instance/disease0> <https://w3id.org/asdkb/ontology/objectproperty/diagnosticExpert> <https://w3id.org/asdkb/instance/doctor165> .
+<https://w3id.org/asdkb/instance/disease0> <https://w3id.org/asdkb/ontology/objectproperty/interventionMethod> <https://w3id.org/asdkb/instance/treatment1> .
+<https://w3id.org/asdkb/instance/disease0> <https://w3id.org/asdkb/ontology/objectproperty/diagnosticExpert> <https://w3id.org/asdkb/instance/doctor217> .
+<https://w3id.org/asdkb/instance/disease0> <https://w3id.org/asdkb/ontology/objectproperty/diagnosticExpert> <https://w3id.org/asdkb/instance/doctor493> .
+<https://w3id.org/asdkb/instance/disease0> <https://w3id.org/asdkb/ontology/objectproperty/diagnosticExpert> <https://w3id.org/asdkb/instance/doctor483> .
+<https://w3id.org/asdkb/instance/disease0> <https://w3id.org/asdkb/ontology/objectproperty/diagnosticExpert> <https://w3id.org/asdkb/instance/doctor316> .
+<https://w3id.org/asdkb/instance/disease0> <https://w3id.org/asdkb/ontology/objectproperty/diagnosticExpert> <https://w3id.org/asdkb/instance/doctor8> .
+<https://w3id.org/asdkb/instance/disease0> <https://w3id.org/asdkb/ontology/objectproperty/diagnosticExpert> <https://w3id.org/asdkb/instance/doctor179> .
+<https://w3id.org/asdkb/instance/disease0> <https://w3id.org/asdkb/ontology/objectproperty/diagnosticExpert> <https://w3id.org/asdkb/instance/doctor322> .
+<https://w3id.org/asdkb/instance/disease0> <https://w3id.org/asdkb/ontology/objectproperty/diagnosticExpert> <https://w3id.org/asdkb/instance/doctor30> .
+<https://w3id.org/asdkb/instance/disease0> <https://w3id.org/asdkb/ontology/objectproperty/diagnosticExpert> <https://w3id.org/asdkb/instance/doctor128> .
+<https://w3id.org/asdkb/instance/disease0> <https://w3id.org/asdkb/ontology/objectproperty/diagnosticExpert> <https://w3id.org/asdkb/instance/doctor69> .
+<https://w3id.org/asdkb/instance/disease0> <https://w3id.org/asdkb/ontology/dataproperty/icd-10_code> "E71.1"@zh .
+
+```
+
+### 17.3、数据使用
+
+三个文件间的关系：instance.zip中的实例文件会通过提到与该实例相关的本体来表达ontology.owl中本体之间的关系
+
+mapping.owl是表达ontology.owl中类之间的关系，数据示例详见17.2。
+
+
+
+## 18、【医疗问答】RJUA-QADatasets: 蚂蚁-仁济泌尿专科QA数据集
+
+数据来源于医生参考临床经验中真实患者情况，改写的虚拟患者临床数据，不涉及任何医患隐私数据，经AI模型和专家团队处理校验，构建为问答对(Q-context-A)。
+
+### 18.1、数据汇总
+
+数据下载：  [蚂蚁-仁济泌尿专科2KQA推理数据集](http://data.openkg.cn/dataset/dd526b6e-fa9f-419c-9503-4fe89d0f0006/resource/34005a45-d34b-4161-af51-e8bd22f5641e/download/rjua-qa-v1.zip) 
+
+
+
+数据文件主要为三个json文件
+
+| 数据集 | 数据量 |
+| ------ | ------ |
+| train  | 1705   |
+| valid  | 211    |
+| test   | 213    |
+
+
+
+### 18.2、数据示例
+
+每个文件的具体字段包括：
+
+- 数据标号：id
+- Question: 问题
+- Context: 参考文本
+- Answer: 答案
+- Disease：诊断疾病
+- Advice：诊疗建议
+
+Context来自于中国泌尿外科和男科疾病诊断治疗指南。Question为虚拟患者临床数据，Answer为大模型生成后由泌尿科专家团队标注。虚拟患者的临床参考数据覆盖2019-2023连续5年的时间跨度，包括门诊诊疗、急诊抢救、住院手术和操作、以及日常科普等多形式的资源。病种涵盖泌尿系肿瘤、泌尿系结石、前列腺增生、男性、尿控、泌尿道整复、小儿泌尿、肾移植等10个亚专业，病种覆盖率占泌尿科就诊患者的97.6%。数据集由上海仁济医院泌尿科医生团队参与构建，确保医疗领域专科数据的真实性、精准度和可靠性。
+
+```json
+{"id": "1", "question": "医生您好，我昨天左边的睾丸痛，到医院做了B超：左侧睾丸形态饱满，回声不均匀减低，左侧附睾异常回声，查了血降钙素原13.69，C反应蛋白86.9，白细胞29.55，中性粒细胞百分比96.5%，血肌酐：99，尿常规白细胞：3.3/HP，红细胞：21.1/HP，我这种情况是怎么回事？需要处理吗？", "context": "Context：附睾睾丸炎常见症状数天内急性发作，通常是一侧睾丸或附睾疼痛和肿胀，疼痛沿精索、腹股沟和下腹部放射。可伴有尿频、尿急、排尿困难及阴茎刺痛不适。慢性附睾-睾丸炎的症状变异较大，表现为局部不适、坠胀感或阴囊疼痛，有时可出现急性发作症状;也可表现为从轻微性、间歇性不适到剧烈性.持续性疼痛等程度不同的症状。\nContext：附睾睾丸炎临床诊断主要基于症状和体征，细询问病史，包括是否有尿道炎、经尿道操作、阴囊手术、既往发作史及近期性行为等风险因素。通过病史、泌尿系统症状、性传播感染风险及查体能够初步判断病因，并指导经验性抗生素的使用。\nContext：阴囊超声对附睾睾丸炎的诊断比单纯尿液分析更准确，在与睾丸附睾肿瘤囊肿等疾病的鉴别诊断中有一定的临床价值。彩色多普勒超声对急性附睾睾丸炎与急性睾丸扭转的鉴别具有重要意义，急性附睾睾丸炎声像图特点是患侧附睾体积增大，以头尾部增大明显，回声减低或增高，可伴有睾丸体积增大，实质回声不均匀，患侧附睾、睾丸内高血流信号，抗炎治疗后复查睾丸、附睾内血流信号明显减少。彩色多普勒检查在炎症时显示高血流信号，而睾丸扭转时显示血流信号减少甚至消失。\nContext：一般治疗卧床休息，托起阴囊，睾丸局部热敷或冷敷以减轻疼痛症状。阴囊皮肤红肿者可用50%硫酸镁溶液湿敷，疼痛剧烈者可用0.5%利多卡因做精索封闭。对于疑似性传播感染的患者，治疗期间避免性生活。\nContext：抗生素治疗在使用抗生素前应留取尿液/尿道分泌物样本行微生物培养及药敏试验，根据最可能的致病微生物，经验性使用抗生素。治疗目标是消除致病微生物，缓解临床症状，预防性传播疾病向性伴侣传播和并发症发生。对于肠道菌群(如大肠埃希菌)引起的病例，建议使用氟峰诺酮类抗生素10-14天，儿童可以使用青霉素或头抱类抗生素:对于沙眼衣原体或解脉支原体引起的感染，使用多西环素、阿奇霉素10~14天，也可联合氟峰诺酮类抗生素治疗;对于淋病性附睾睾丸炎患者，建议头抱曲松250~1000mg单剂肌内注射，加多西环素、阿奇霉素10~14天。治疗3天后评估疗效，并根据培养结果选择敏感的抗生素治疗。病毒性睾丸炎不需要抗生素治疗，大多数腮腺炎相关睾丸炎可在3~10天自然缓解。\nContext：急性睾丸扭转典型症状: 睾丸扭转典型症状为由于扭转导致睾丸及附睾缺血造成的突发性的一侧阴囊疼痛，间断性或持续性均可，可在数分钟至数小时内逐渐加重，也可向下腹部放射。此外，最常见伴随症状为恶心呕吐，占睾丸扭转患者主诉的57% ~ 69%，部分患者甚至以伴随症状为主诉就诊原因可能与疼痛导致的神经反射刺激有关，此症状在睾丸附件扭转时的发生率则很低，急性附睾睾丸炎时几乎无此症状。其他伴随症状较为少见。\nContext：1.彩色超声多普勒检查 作为睾丸扭转的首选检查手段，彩色多普勒超声具有快速、方便、费用低特异性高等特点，可以直观地对患侧睾丸的形态和血流灌注情况进行检查。彩超对睾丸扭转的敏感度和特异度均很高，很多文献报道两者均超过90%。彩超下可见睾丸体积增大，内部回声不均匀，睾丸门处呈强回声，睾丸内部血流消失或同对侧相比血流明显减少，同时睾丸周围阴囊壁血流信号增多。若存在精素扭转，则精索走行出现圆形或椭圆形均质或非均质性回声团块，即无论完全扭转或部分扭转均会出现“旋涡征”或“蜗牛壳征”。若仍有血流通过则可见到“血管环”，这有助于我们进一步证实睾丸扭转的诊断。\nContext：睾丸扭转可发生于任何年龄段，占阴囊急症的25%~35%，以青少年最为常见。研究显示在 0~11岁阶段睾丸扭转占睾丸急症的 6.6%，在 12 ~ 16 岁阶段占 52%，17 ~ 40岁阶段占48%(7。新生儿期和青春期是两个高峰期，25岁以下男性每年发病率为1/4000，其中16 ~ 17岁最多见，原因可能与青春期提睾肌反射活跃有关。睾丸扭转是青少年急性阴囊疼痛的主要原因，若出现急性阴囊疼痛应首先考虑睾丸扭转可能。左侧发病率高于右侧，可能与左侧精索较长有关，双侧同时扭转比较罕见\nContext：(1)急性睾丸扭转典型症状: 睾丸扭转典型症状为由于扭转导致睾丸及附睾缺血造成的突发性的一侧阴囊疼痛，间断性或持续性均可，可在数分钟至数小时内逐渐加重，也可向下腹部放射。此外，最常见伴随症状为恶心呕吐，占睾丸扭转患者主诉的57% ~ 69%，部分患者甚至以伴随症状为主诉就诊原因可能与疼痛导致的神经反射刺激有关，此症状在睾丸附件扭转时的发生率则很低，急性附睾睾丸炎时几乎无此症状。其他伴随症状较为少见。\nContext：(2)急性睾丸扭转非典型症状:急性睾丸扭转除典型症状外，一部分患者也以其他急腹症症状就诊如腰痛、腹股沟痛、下腹痛或脐周痛。其原因可能是由于睾丸的痛觉由 To~.的交感神经传递，疼痛可能扩散到相邻的脊髓节段所支配的范围。另外，精索在腹脱后走行，睾丸扭转后疼痛沿精索向腰部及腹部放散(%。由于症状不典型，导致了这部分睾丸扭转患者很容易被误诊，延误了治疗的最佳时机。\nContext：(3) 腹股沟管隐睾睾丸扭转症状: 隐睾也会发生扭转，且常诊治延后，造成睾丸丢失。张潍平等回顾性分析15例腹股沟管隐睾扭转患儿，其首发症状为腹股沟肿痛 13 例，腹痛1例，腹痛伴呕吐 1例[。隐坚睾丸扭转临床症状不典型，诊断困难，易造成漏诊误诊，因此对外生殖器的查体更为重要\nContext：2.查体 查体主要表现为患侧阴囊肿胀、发红坚丸位置偏高(部分睾丸位置可处于腹股沟外环处 ),呈前位附睾或睾丸横位。睾丸附睾体积增大，轮廓触诊不清，阴囊抬高试验( Prehn 征)多呈阳性(附睾坚丸炎时提托阴囊可缓解疼痛，但睾丸扭转时则加刷 )，提睾肌反射消失。\nContext：1.彩色超声多普勒检查 作为睾丸扭转的首选检查手段，彩色多普勒超声具有快速、方便、费用低特异性高等特点，可以直观地对患侧睾丸的形态和血流灌注情况进行检查。彩超对睾丸扭转的敏感度和特异度均很高，很多文献报道两者均超过90%。彩超下可见睾丸体积增大，内部回声不均匀，睾丸门处呈强回声，睾丸内部血流消失或同对侧相比血流明显减少，同时睾丸周围阴囊壁血流信号增多。若存在精素扭转，则精索走行出现圆形或椭圆形均质或非均质性回声团块，即无论完全扭转或部分扭转均会出现“旋涡征”或“蜗牛壳征”。若仍有血流通过则可见到“血管环”，这有助于我们进一步证实睾丸扭转的诊断\nContext：1.治疗原则 睾丸扭转的治疗原则是尽快恢复扭转睾丸的血流，扭转时间和扭转角度是决定能否挽救睾丸的关键，因此一旦怀疑睾丸扭转，第一时间的复位、急诊手术探查至关重要\nContext：(2) 患侧睾丸固定术或者睾丸切除术:睾丸扭转患者迫切需要进行手术探查，减少时间上的延误。尽管有学者报道部分可疑睾丸扭转患者可以避免手术，但相对于一旦出现误诊漏诊而造成的睾丸功能丧失的严重后果，对查体和辅助检查后高度可疑病例应尽早进行手术探查。挽救睾丸的关键在于从发病到手术的时间，一般认为最佳时间为发病6小时内完成手术复位，而超过12小时则睾丸存活率很低\nContext：(3)健侧睾丸固定术:一侧睾丸扭转患者是否需要预防性健侧睾丸固定术，目前仍有争议。不支持者主要观点有:睾丸扭转发病率随年龄增长而降低;健侧睾丸是否会扭转缺乏循证证据;对侧睾丸固定术可能损伤健侧睾丸等[，而更多的学者建议行对侧睾丸固定术，理由是睾丸扭转患者的解剖结构异常通常是双侧的.", "answer": "您好，根据您的症状描述，目前考虑有睾丸炎，并发脓毒血症，综合症状和病程睾丸扭转不能排除，您应该立即急诊就医，行阴囊探查术，且并留取血和尿培养，同时补液支持治疗预防感染性休克。并密切监测生命体征、血气分析、感染指标等变化。", "disease": "睾丸炎、睾丸扭转，脓毒血症", "advice": "阴囊探查术、留取血和尿培养、补液支持治疗"}
+```
+
+
+
+
 ## 参考链接（整理进度）
 
 - [x] https://github.com/FreedomIntelligence/Medical_NLP
-- [ ] http://openkg.cn/group/medicine
+- [ ] http://data.openkg.cn/group/medicine
 - [ ] https://github.com/GanjinZero/awesome_Chinese_medical_NLP
 - [ ] https://github.com/FutureForMe/Chinese_Medical_Natural_Language_Processing_Resources_and_Papers
-
 - [ ] https://www.trec-cds.org/2023.html
+- [ ] https://www.cvmart.net/community/detail/4108
