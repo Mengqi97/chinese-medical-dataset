@@ -455,7 +455,7 @@ Description
 
 数据下载： https://tianchi.aliyun.com/dataset/95414 页面中数据列表的 KUAKE-IR.zip
 
-`<img src="https://github.com/Mengqi97/chinese-medical-dataset/blob/main/figure/8/image-20240802034609685.png" alt="image-20240802034609685"  />`
+![image-20240802034609685](https://github.com/Mengqi97/chinese-medical-dataset/blob/main/figure/8/image-20240802034609685.png)
 
 KUAKE-IR.zip中包含的数据文件：
 
@@ -2241,7 +2241,7 @@ relation.json
 
    点击connect，出现以下界面表示链接成功。
 
-   ![image-20240806131555285](https://github.com/Mengqi97/chinese-medical-dataset/tree/main/figure/19/image-20240806131555285.png)
+   ![image-20240806131555285](https://github.com/Mengqi97/chinese-medical-dataset/blob/main/figure/19/image-20240806131555285.png)
 
 5. 导入dump文件： 本地terminal中运行`neo4j stop`, 因为只有先停止neo4j才能够导入数据。随后根据下载的dump文件，在本地terminal中运行指令
 
@@ -2265,7 +2265,7 @@ relation.json
    LIMIT 300
    ```
 
-   ![image-20240806132659188](https://github.com/Mengqi97/chinese-medical-dataset/tree/main/figure/19/image-20240806132659188.png)
+   ![image-20240806132659188](https://github.com/Mengqi97/chinese-medical-dataset/blob/main/figure/19/image-20240806132659188.png)
 
 #### 19.4.2、如何根据dump文件导出json文件
 
@@ -2285,7 +2285,7 @@ MATCH ()-[r]->()
 RETURN r
 ```
 
-![image-20240806133401199](https://github.com/Mengqi97/chinese-medical-dataset/tree/main/figure/19/image-20240806133401199.png)
+![image-20240806133401199](https://github.com/Mengqi97/chinese-medical-dataset/blob/main/figure/19/image-20240806133401199.png)
 
 根据如图所示按钮导出json文件，实体文件和关系文件导出同理。
 
