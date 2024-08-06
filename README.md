@@ -2010,7 +2010,9 @@ Context来自于中国泌尿外科和男科疾病诊断治疗指南。Question�
 
 该数据集提供一个由neo4j构建的知识图谱，一个dump文件。该文件下载链接： http://data.openkg.cn/dataset/c7cea42c-834e-4fd8-8583-f14abfd1df97/resource/2a3d9d36-2728-445e-8761-9c246a685c93/download/medicalgraphversion2.dump
 
-鉴于一个只能由neo4j打开的文件使用门槛略高，本仓库创建者（mzcai@ir.hit.edu.cn）将其以json文件进行导出，共有两个json文件，一个为实体文件 entity.json，一个为关系文件 relation.json。我也将介绍如何使用dump文件以及两个json文件是如何导出的。
+鉴于一个只能由neo4j打开的文件使用门槛略高，本仓库创建者（mzcai@ir.hit.edu.cn）将其以json文件进行导出，共有两个json文件，一个为实体文件 entity.json，一个为关系文件 relation.json。文件下载链接： https://pan.baidu.com/s/1ggGXQLXG8CzlrpwEL1bC4g?pwd=fjs6
+
+我也将在19.4中介绍如何使用dump文件以及两个json文件是如何导出的。
 
 ### 19.1、知识图谱构造过程&数据源
 
