@@ -2065,9 +2065,9 @@ Context来自于中国泌尿外科和男科疾病诊断治疗指南。Question�
 
 用本地neo4j服务端运行dump文件后，在本地浏览器上访问：
 
-![image-20240805204656238](https://github.com/Mengqi97/chinese-medical-dataset/tree/main/figure/19/image-20240805204656238.png)
+![image-20240805204656238](https://github.com/Mengqi97/chinese-medical-dataset/blob/main/figure/19/image-20240805204656238.png)
 
-![image-20240805204827720](https://github.com/Mengqi97/chinese-medical-dataset/tree/main/figure/19/image-20240805204827720.png)
+![image-20240805204827720](https://github.com/Mengqi97/chinese-medical-dataset/blob/main/figure/19/image-20240805204827720.png)
 
 
 
