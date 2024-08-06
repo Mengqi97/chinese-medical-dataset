@@ -553,7 +553,7 @@ example_pred.tsv
 
 来源2文件下载： https://tianchi.aliyun.com/dataset/95414 页面中数据列表的 CHIP-MDCFNPC.zip
 
-![image-20240802042258144](/Users/caimuzhen/Library/Application Support/typora-user-images/image-20240802042258144.png)
+![image-20240802042258144](https://github.com/Mengqi97/chinese-medical-dataset/blob/main/figure/8/image-20240802042258144.png)
 
 | 数据文件                 | 数据量 |
 | ------------------------ | ------ |
