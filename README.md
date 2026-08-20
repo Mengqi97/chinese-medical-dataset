@@ -1,6 +1,6 @@
-# [更新中]中文医学数据集详细整理
+# 中文医学数据集详细整理
 
-Author: mzcai@ir.hit.edu.cn
+更新不动了，换研究课题了。有机会再更新。欢迎关注我的具身规划相关的新仓库。
 
 - [中文医学数据集](#中文医学数据集)
 - [1、【分类\&医疗问答】CMB Chinese-Medical-Benchmark](#1分类医疗问答cmb-chinese-medical-benchmark)
